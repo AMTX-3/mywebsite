@@ -1,0 +1,340 @@
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+/* 最外围方框 */
+.outer-box {
+    max-width: 1220px;
+    margin: 0 auto;
+    /* 替换为木板边框 - 纯CSS纹理 */
+    border: 3px solid transparent;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #fff;
+    /* 木板纹理边框实现 */
+    background-image: 
+        linear-gradient(#fff, #fff),
+        repeating-linear-gradient(
+            90deg,
+            #8b5a2b 0px,
+            #8b5a2b 2px,
+            #a06c3b 2px,
+            #a06c3b 4px,
+            #8b5a2b 4px,
+            #8b5a2b 6px,
+            #966947 6px,
+            #966947 8px
+        );
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+/* 内部容器 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 主行（两格子行）样式 */
+.main-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+/* 子行（三格子行）样式 */
+.sub-row {
+    /* width: 500px; */
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* 顶行样式 */
+.top-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* 主格子样式（两列） */
+.box {
+    width: 50%;
+    height: 500px;
+    /* 替换为木板边框 - 纯CSS纹理 */
+    border: 3px solid transparent;
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: 19px;
+    font-family: "Microsoft Yahei", sans-serif;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    /* 新增：为装饰图片添加定位基础 */
+    position: relative;
+    overflow: hidden;
+    /* 木板纹理边框实现 */
+    background-image: 
+        linear-gradient(#fff, #fff),
+        repeating-linear-gradient(
+            90deg,
+            #8b5a2b 0px,
+            #8b5a2b 2px,
+            #a06c3b 2px,
+            #a06c3b 4px,
+            #8b5a2b 4px,
+            #8b5a2b 6px,
+            #966947 6px,
+            #966947 8px
+        );
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+/*顶部格子*/
+.top-box {
+    width: 100%;
+    height: 450px;
+    /* 替换为木板边框 - 纯CSS纹理 */
+    border: 3px solid transparent;
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: 20px;
+    font-family: "Microsoft Yahei", sans-serif;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    /* 新增：为装饰图片添加定位基础 */
+    position: relative;
+    overflow: hidden;
+    /* 木板纹理边框实现 */
+    background-image: 
+        linear-gradient(#fff, #fff),
+        repeating-linear-gradient(
+            90deg,
+            #8b5a2b 0px,
+            #8b5a2b 2px,
+            #a06c3b 2px,
+            #a06c3b 4px,
+            #8b5a2b 4px,
+            #8b5a2b 6px,
+            #966947 6px,
+            #966947 8px
+        );
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+/* 新增：主格子左下角云朵装饰 */
+.box::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 177px;
+    height: 100px;
+    background-image: url('pictures/clouds.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.28;
+    /* 保证装饰图在内容下方 */
+    z-index: 1;
+}
+
+.top-box::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 120px;
+    height: 68px;
+    background-image: url('pictures/clouds.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.28;
+    /* 保证装饰图在内容下方 */
+    z-index: 1;
+}
+
+/* 新增：保证格子内内容在装饰图上方 */
+.box > * {
+    position: relative;
+    z-index: 2;
+}
+
+.top-box > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* 主格子悬浮效果 */
+.box:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    /* 悬浮时木板边框颜色加深，增强质感 */
+    background-image: 
+        linear-gradient(#fff, #fff),
+        repeating-linear-gradient(
+            90deg,
+            #7a4a20 0px,
+            #7a4a20 2px,
+            #915c2b 2px,
+            #915c2b 4px,
+            #7a4a20 4px,
+            #7a4a20 6px,
+            #875837 6px,
+            #875837 8px
+        );
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    cursor: pointer;
+}
+
+/* 主格子悬浮效果 */
+.top-box:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    /* 悬浮时木板边框颜色加深，增强质感 */
+    background-image: 
+        linear-gradient(#fff, #fff),
+        repeating-linear-gradient(
+            90deg,
+            #7a4a20 0px,
+            #7a4a20 2px,
+            #915c2b 2px,
+            #915c2b 4px,
+            #7a4a20 4px,
+            #7a4a20 6px,
+            #875837 6px,
+            #875837 8px
+        );
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    cursor: pointer;
+}
+
+
+/* 子格子样式（三列） */
+.sub-box {
+    width: 35%;/*在这里改*/
+    height: 300px;
+    /* 替换为木板边框 - 纯CSS纹理 */
+    border: 5px solid transparent;
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: 18px;
+    font-family: "Microsoft Yahei", sans-serif;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    /* 新增：为装饰图片添加定位基础 */
+    position: relative;
+    overflow: hidden;
+    /* 木板纹理边框实现 */
+    background-image: 
+        linear-gradient(#fff, #fff),
+        repeating-linear-gradient(
+            90deg,
+            #8b5a2b 0px,
+            #8b5a2b 2px,
+            #a06c3b 2px,
+            #a06c3b 4px,
+            #8b5a2b 4px,
+            #8b5a2b 6px,
+            #966947 6px,
+            #966947 8px
+        );
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+/* 新增：子格子左下角云朵装饰 */
+.sub-box::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 142px;
+    height: 80px;
+    background-image: url('pictures/clouds.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.28;
+    /* 保证装饰图在内容下方 */
+    z-index: 1;
+}
+
+/* 新增：保证子格子内内容在装饰图上方 */
+.sub-box > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* 子格子悬浮效果 */
+.sub-box:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    /* 悬浮时木板边框颜色加深，增强质感 */
+    background-image: 
+        linear-gradient(#fff, #fff),
+        repeating-linear-gradient(
+            90deg,
+            #7a4a20 0px,
+            #7a4a20 2px,
+            #915c2b 2px,
+            #915c2b 4px,
+            #7a4a20 4px,
+            #7a4a20 6px,
+            #875837 6px,
+            #875837 8px
+        );
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    cursor: pointer;
+}
+
+/* 文字/图片格子区分样式 */
+.text-box {
+    color: #333;
+}
+
+.img-box {
+    color: #666;
+    background-color: #fafafa;
+    /* 图片格子适配木板边框 */
+    background-image: 
+        linear-gradient(#fafafa, #fafafa),
+        repeating-linear-gradient(
+            90deg,
+            #8b5a2b 0px,
+            #8b5a2b 2px,
+            #a06c3b 2px,
+            #a06c3b 4px,
+            #8b5a2b 4px,
+            #8b5a2b 6px,
+            #966947 6px,
+            #966947 8px
+        );
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+/* 新增：适配img-box内的主图片显示 */
+.img-box img {
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+    padding: 0;
+    object-fit: cover;
+}
